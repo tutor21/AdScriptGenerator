@@ -18,8 +18,10 @@
     return;
   }
 
-  const embedLicense = currentScript.getAttribute('data-license');
-  const embedSite = currentScript.getAttribute('data-site');
+  // These values will be replaced by the dashboard's script generation logic
+  // when you copy the content into this file.
+  const embedLicense = "SCRIPT_ID_PLACEHOLDER"; // Will be replaced with actual license ID
+  const embedSite = "TARGET_DOMAIN_PLACEHOLDER"; // Will be replaced with actual target domain
   const adContainerId = "ad-container-" + embedLicense;
 
   let container = document.getElementById(adContainerId);
