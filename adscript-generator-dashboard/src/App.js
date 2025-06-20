@@ -5,7 +5,7 @@ import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged }
 import { getFirestore, doc, setDoc, deleteDoc, onSnapshot, collection, query, where } from 'firebase/firestore';
 
 // Define the content of the simulated ads-loader.js script as a constant static string.
-// Placeholders (SCRIPT_ID_PLACEHOLDER, TARGET_DOMAIN_PLACEHOLDER) will be replaced dynamically.
+// Placeholders (e.g., __SCRIPT_ID_PLACEHOLDER__) will be replaced dynamically at runtime.
 const ADS_LOADER_JS_CONTENT_TEMPLATE = `
   (function() {
     // This script represents the content of ads-loader.js that would be served from a CDN/server.
@@ -338,8 +338,8 @@ function App() {
 
       // Dynamically replace placeholders in the static template string
       const adsLoaderJsContentString = ADS_LOADER_JS_CONTENT_TEMPLATE
-        .replace(/SCRIPT_ID_PLACEHOLDER/g, scriptId)
-        .replace(/TARGET_DOMAIN_PLACEHOLDER/g, targetDomain.trim().replace(/\/+$/, ''));
+        .replace(/__SCRIPT_ID_PLACEHOLDER__/g, scriptId) // Updated placeholder
+        .replace(/__TARGET_DOMAIN_PLACEHOLDER__/g, targetDomain.trim().replace(/\/+$/, '')); // Updated placeholder
 
 
       const embedScript = `
